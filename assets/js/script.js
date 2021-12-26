@@ -1,5 +1,5 @@
 let startQuizButton = document.querySelector("#startQuizButton");
-const initialTime = 5;
+const initialTime = 20;
 let countDown = initialTime;
 let countDownEl = document.querySelector("#countDownEl");
 let questionAsked = document.querySelector("#questionAsked");
@@ -8,7 +8,7 @@ let answer2 = document.querySelector("#answer2");
 let answer3 = document.querySelector("#answer3");
 let answer4 = document.querySelector("#answer4");
 let questionIncriment = 0;
-
+let finalScoreEl = document.querySelector("#finalScoreEl")
 let intervalId;
 
 //quiz questions array
@@ -25,6 +25,17 @@ const questionArray = [
   },
 
   {
+    question: "Arrays in JavaScript can be used to store __________.",
+    answers: [
+      "numbers and strings",
+      "other arrays",
+      "booleans",
+      "all of the above",
+    ],
+    correctAnswer: 3,
+  },
+
+  {
     question: "Which of the following is not a valid JavaScript variable name?",
     answers: [
       "2names",
@@ -36,11 +47,23 @@ const questionArray = [
   },
 
   {
+    question: "String values must be enclosed within _______ when being assigned to variables.",
+    answers: [
+      "commas",
+      "quotes",
+      "curly brackets",
+      "parenthesis",
+    ],
+    correctAnswer: 2,
+  },
+
+  {
     question:
       "________ tag is an extension to HTML that can enclose any number of JavaScript statements.",
     answers: ["<SCRIPT>", "<BODY>", "<HEAD>", "<TITLE>"],
     correctAnswer: 0,
   },
+
 ];
 
 //start button handler start
@@ -88,8 +111,18 @@ let checkAnswer = function (event) {
   } else {
     console.log("incorrect");
   }
-  questionIncriment++;
-  createQuestionEl();
+
+  if (questionIncriment >= questionArray.length -1){
+    clearInterval(intervalId);
+    finalScoreEl.textContent = (countDown + ".");
+console.log(countDown);
+
+  } else {
+    questionIncriment++;
+    createQuestionEl();
+  }
+
+
   //move to next question
   //splash CORRECT under question div
   //verify wrong answer
