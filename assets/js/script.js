@@ -87,6 +87,7 @@ var startQuizButtonHandler = function (event) {
     if (countDown <= 0) {
       clearInterval(intervalId);
       countDown = initialTime;
+      showWelcomeSplash();
     }
   }, 1000);
 };
@@ -169,6 +170,7 @@ let showLeaderboard = function () {
 //show the welcome splash
 let showWelcomeSplash = function () {
   highScoreSplash.classList.add("hidden");
+  questionSplash.classList.add("hidden");
   welcomeSplash.classList.remove("hidden");
   highScoreList.innerHTML = "";
 };
