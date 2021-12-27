@@ -13,19 +13,26 @@
 <body>
     <header>
         <div>
-            <p>View High Scores</p>
+            <button id="viewHighScores">View High Scores</button>
             <h1>JS Coding Quiz Challenge</h1>
             <p>Time: <span id="countDownEl"></span></p>
         </div>
     </header>
 
     <main>
-        <div>
-            <button id="startQuizButton">Start Quiz</button>
+        <div id="welcomeSplash" class="basic-border">
+            <p>
+                Try to asnswer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers will penalize your score/time by ten seconds!
+            </p>
+            <div>
+                <button id="startQuizButton">Start Quiz</button>
+            </div>
+
         </div>
 
         <!--example question container-->
-        <div>
+        <div id="questionSplash" class="hidden basic-border">
             <h2 id="questionAsked">
                 <!--This is the question-->
                 This is where a question is asked.
@@ -40,17 +47,40 @@
         </div>
 
 
-        <div>
+        <div id="finalScoreSplash" class="hidden basic-border">
             <h2>
                 All done!
             </h2>
             <p>Your final score is <span id="finalScoreEl"></span></p>
+            <div>
+                <p>Enter your initials:
+                <form id="initialsForm">
+                    <input type="text" id="initials">
+                    <button id="submit">SUBMIT</button>
+                </form>
+                </p>
+            </div>
+        </div>
+
+
+        <div id="highScoreSplash" class="hidden">
+            <h2>
+                High Scores
+            </h2>
+            <ol id="highScoreList">
+                <!--high scores go here-->
+            </ol>
+            <div>
+                <button id="goBackToHome">Go Back</button>
+                <button id="clearHighScores">Clear High Scores</button>
+            </div>
+
         </div>
 
 
 
 
-        <div id="answerFeedbackEl">Wrong or correct goes here</div>
+        <div id="answerFeedbackEl" class="hidden">Wrong or correct goes here</div>
 
 
 
