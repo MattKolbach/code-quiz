@@ -1,5 +1,5 @@
 let startQuizButton = document.querySelector("#startQuizButton");
-const initialTime = 20;
+const initialTime = 75;
 let countDown = initialTime;
 let countDownEl = document.querySelector("#countDownEl");
 let questionAsked = document.querySelector("#questionAsked");
